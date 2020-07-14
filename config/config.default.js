@@ -23,6 +23,44 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  config.cluster = {
+    listen: {
+      path: '',
+      port: 7001,
+      hostname: '0.0.0.0',
+    },
+  };
+
+  config.sequelize = {
+    dialect: 'mysql',
+    host: 'localhost',
+    port: 3306,
+    username: 'root', // 账号
+    password: '123456',
+    database: 'test',
+    timezone: '+08:00',
+  };
+
+  exports.mysql = {
+    // 单数据库信息配置
+    client: {
+      // host
+      host: 'localhost',
+      // 端口号
+      port: '3306',
+      // 用户名
+      user: 'root',
+      // 密码
+      password: '123456',
+      // 数据库名
+      database: 'test',
+    },
+    // 是否加载到 app 上，默认开启
+    app: true,
+    // 是否加载到 agent 上，默认关闭
+    agent: false,
+  };
+
   return {
     ...config,
     ...userConfig,
